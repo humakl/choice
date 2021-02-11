@@ -1,22 +1,23 @@
+import { NavLink } from 'react-router-dom';
 import cf from './nav.module.css';
 
 const Nav = () => {
   return (
     <nav className={cf.nav}>
       <div className={cf.item}>
-        <a href="/profile">Profile</a>
+        <NavLink to="/profile" activeClassName={cf.activelink}>Profile</NavLink>
       </div>
       <div className={cf.item}>
-        <a href="/dialogs">Messages</a>
+        <NavLink to="/dialogs" activeClassName={cf.activelink}>Messages</NavLink>
       </div>
       <div className={`${cf.item} ${cf.active}`}>
-        <a href="/news">News</a>
+        <NavLink to="/news" activeClassName={cf.activelink}>News</NavLink>
       </div>
       <div className={cf.item}>
-        <a href="/photos">Photos</a>
+        <NavLink to="/photos" activeClassName={cf.activelink}>Photos</NavLink>
       </div>
       <div className={cf.item}>
-        <a href="settings">Settings</a>
+        <NavLink to="settings" activeClassName={cf.activelink}>Settings</NavLink>
       </div>
     </nav>
   )
