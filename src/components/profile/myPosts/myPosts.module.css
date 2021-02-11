@@ -2,3 +2,11 @@ textarea {
   background-color: darkslategrey;
   color: aliceblue;
 }
+
+.postsBlock {
+  padding: 10px;
+}
+
+.posts {
+  margin-top: 10px;
+}

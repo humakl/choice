@@ -1,16 +1,13 @@
 import MyPosts from './myPosts/myPosts';
 import cf from './profile.module.css';
+import ProfileInfo from './profileInfo/profileInfo';
 
 const Profile = () => {
   return (
     <div>
-      <img src="https://bit.ly/3r2SOUF"></img>
-      <div>
-        <img src="https://bit.ly/2YnTN5I" className={cf.ava}></img>
-        ava + description
-      </div>
+      <ProfileInfo />
       <MyPosts />
-    </div>
+    </div >
   )
 }
 

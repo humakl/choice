@@ -10,7 +10,7 @@ const Nav = () => {
       <div className={cf.item}>
         <NavLink to="/dialogs" activeClassName={cf.activelink}>Messages</NavLink>
       </div>
-      <div className={`${cf.item} ${cf.active}`}>
+      <div className={cf.item}>
         <NavLink to="/news" activeClassName={cf.activelink}>News</NavLink>
       </div>
       <div className={cf.item}>
