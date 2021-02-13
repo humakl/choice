@@ -9,18 +9,19 @@ import Photos from './components/photos/photos';
 import Settings from './components/settings/settings';
 
 
-const App = () => {
+const App = (props) => {
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Nav />
         <div className="app-content-wrapper">
-          <Route path="/profile" component={Profile} />
-          <Route path="/dialogs" component={Dialogs} />
-          <Route path="/news" component={News} />
-          <Route path="/photos" component={Photos} />
-          <Route path="/settings" component={Settings} />
+          <Route path="/profile" render={() => <Profile posts={props.posts}/>} />
+          <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>} />
+          <Route path="/news" render={() => <News />} />
+          <Route path="/photos" render={() => <Photos />} />
+          <Route path="/settings" render={() => <Settings />} />
         </div>
       </div>
     </BrowserRouter>

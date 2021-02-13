@@ -1,4 +1,4 @@
-import cf from './settings.module.css';
+// import cf from './settings.module.css';
 
 const Settings = () => {
   return (

@@ -4,10 +4,10 @@ const ProfileInfo = () => {
   return (
     <div>
       <div>
-        <img src="https://bit.ly/3r2SOUF"></img>
+        <img src="https://bit.ly/3r2SOUF" alt="info"></img>
       </div>
       <div className={cf.descriptionBlock}>
-        <img src="https://bit.ly/2YnTN5I" className={cf.ava}></img>
+        <img src="https://bit.ly/2YnTN5I" alt="avatar" className={cf.ava}></img>
         ava + description
       </div >
     </div >

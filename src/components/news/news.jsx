@@ -1,4 +1,4 @@
-import cf from './news.module.css';
+// import cf from './news.module.css';
 
 const News = () => {
   return (

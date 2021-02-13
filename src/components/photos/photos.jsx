@@ -1,4 +1,4 @@
-import cf from './photos.module.css';
+// import cf from './photos.module.css';
 
 const Photos = () => {
   return (
