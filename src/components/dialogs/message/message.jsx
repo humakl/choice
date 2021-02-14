@@ -3,7 +3,7 @@ import cf from './../dialogs.module.css';
 
 const Message = (props) => {
   return (
-    <div className={cf.message}>{props.message}</div>
+    <div className={cf.message}>{props.talker}: {props.message}</div>
   )
 }
 

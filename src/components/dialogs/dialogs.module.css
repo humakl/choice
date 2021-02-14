@@ -15,5 +15,9 @@
 .messages {
   padding: 10px;
   background-image: linear-gradient(0deg, rgb(45, 134, 194), rgb(144, 223, 255));
-  height: 100%;
+}
+
+.dialogAva {
+  width: 50px;
+  border-radius: 50%;
 }

@@ -17,10 +17,10 @@ let state = {
       { id: 5, name: "Nick" }
     ],
     messages: [
-      { id: 1, message: "Hey there!" },
-      { id: 2, message: "Let's do it!" },
-      { id: 3, message: "We can achieve it!" },
-      { id: 4, message: "Something went wrong?" },
+      { id: 1, talker: "me", message: "Hey there!" },
+      { id: 2, talker: "you", message: "Let's do it!" },
+      { id: 3, talker: "you", message: "We can achieve it!" },
+      { id: 4, talker: "me", message: "Something went wrong?" },
     ]
   }
 }
