@@ -22,7 +22,16 @@ let state = {
       { id: 3, talker: "you", message: "We can achieve it!" },
       { id: 4, talker: "me", message: "Something went wrong?" },
     ]
-  }
+  },
+  sidebar:{
+    friendsName: [
+    { id: 1, name: "Joe" },
+    { id: 2, name: "Chuck" },
+    { id: 3, name: "Bill" },
+    { id: 4, name: "Bob" },
+    { id: 5, name: "Nick" }
+  ]
+}
 }
 
 export default state;
