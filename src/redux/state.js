@@ -24,7 +24,8 @@ let state = {
       { id: 2, talker: "you", message: "Let's do it!" },
       { id: 3, talker: "you", message: "We can achieve it!" },
       { id: 4, talker: "me", message: "Something went wrong?" },
-    ]
+    ],
+    newMessageText: ""
   },
   sidebar: {
     friendsName: [
@@ -44,12 +45,28 @@ export let addPost = () => {
     likesCounter: 0
   };
   state.profilePage.posts.push(newPost);
-  state.profilePage.newPostText = '';
+  state.profilePage.newPostText = "";
   rerenderEntireTree(state);
 }
 
 export let updateNewPostText = (newtext) => {
   state.profilePage.newPostText = newtext;
+  rerenderEntireTree(state);
+}
+
+export let addNewMessage = () => {
+  let newMess = {
+    id: 5,
+    talker: "you",
+    message: state.messagesPage.newMessageText
+  };
+  state.messagesPage.messages.push(newMess);
+  state.messagesPage.newMessageText = "";
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newMes) => {
+  state.messagesPage.newMessageText = newMes;
   rerenderEntireTree(state);
 }
 
