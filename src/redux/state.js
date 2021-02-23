@@ -36,42 +36,46 @@ let store = {
       ]
     }
   },
-  getState() {
-    return this._state;
-  },
   _callSubscriber() {
     console.log("State was changed");
   },
-  addPost() {
-    let newPost = {
-      id: 6,
-      message: this._state.profilePage.newPostText,
-      likesCounter: 0
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newtext) {
-    this._state.profilePage.newPostText = newtext;
-    this._callSubscriber(this._state);
-  },
-  addNewMessage() {
-    let newMess = {
-      id: 5,
-      talker: "you",
-      message: this._state.messagesPage.newMessageText
-    };
-    this._state.messagesPage.messages.push(newMess);
-    this._state.messagesPage.newMessageText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewMessageText(newMes) {
-    this._state.messagesPage.newMessageText = newMes;
-    this._callSubscriber(this._state);
+
+  getState() {
+    return this._state;
   },
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {    // action - это объект, который описывает какое действие совершить. У этого объекта должно быть обязательно свойство "type", которое текстовое с названием действия
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 6,
+        message: this._state.profilePage.newPostText,
+        likesCounter: 0
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = "";
+      this._callSubscriber(this._state);
+    } 
+    else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newtext;
+      this._callSubscriber(this._state);
+    } 
+    else if (action.type === 'ADD-NEW-MESSAGE') {
+      let newMess = {
+        id: 5,
+        talker: "you",
+        message: this._state.messagesPage.newMessageText
+      };
+      this._state.messagesPage.messages.push(newMess);
+      this._state.messagesPage.newMessageText = "";
+      this._callSubscriber(this._state);
+    } 
+    else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+      this._state.messagesPage.newMessageText = action.newMes;
+      this._callSubscriber(this._state);
+    }
   }
 }
 
