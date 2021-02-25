@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 let store = {
   _state: {
     profilePage: {
@@ -48,21 +53,21 @@ let store = {
   },
 
   dispatch(action) {    // action - это объект, который описывает какое действие совершить. У этого объекта должно быть обязательно свойство "type", которое текстовое с названием действия
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 6,
         message: this._state.profilePage.newPostText,
-        likesCounter: 0
+        likesCounter: "0"
       };
       this._state.profilePage.posts.push(newPost);
       this._state.profilePage.newPostText = "";
       this._callSubscriber(this._state);
     } 
-    else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.profilePage.newPostText = action.newtext;
+    else if (action.type === UPDATE_NEW_POST_TEXT) {
+      this._state.profilePage.newPostText = action.newText;
       this._callSubscriber(this._state);
     } 
-    else if (action.type === 'ADD-NEW-MESSAGE') {
+    else if (action.type === ADD_NEW_MESSAGE) {
       let newMess = {
         id: 5,
         talker: "you",
@@ -72,12 +77,22 @@ let store = {
       this._state.messagesPage.newMessageText = "";
       this._callSubscriber(this._state);
     } 
-    else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+    else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
       this._state.messagesPage.newMessageText = action.newMes;
       this._callSubscriber(this._state);
     }
   }
 }
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+export const updateNewPostTextActionCreator = (text) => (
+  {type: UPDATE_NEW_POST_TEXT, newText: text});
+
+export const addNewMessageActionCreator = () => ({type: ADD_NEW_MESSAGE});
+
+export const updateNewMessageTextActionCreator = (Mess) => (
+  {type: UPDATE_NEW_MESSAGE_TEXT, newMes: Mess});
 
 export default store;
 window.store = store;
