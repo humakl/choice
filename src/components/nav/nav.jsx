@@ -1,11 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import Friends from './friends/friends';
 import cf from './nav.module.css';
 
 const Nav = (props) => {
-
-  let friendsElements = props.state.friendsName.map(f => <Friends name={f.name} />)
-
   return (
     <nav className={cf.nav}>
       <div className={cf.item}>
@@ -23,9 +19,6 @@ const Nav = (props) => {
       <div className={cf.item}>
         <NavLink to="settings" activeClassName={cf.activelink}>Settings</NavLink>
       </div>
-      <br/><br/>
-      <h3>Friends</h3>
-      {friendsElements}
     </nav>
     
   )
