@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import dialogsReducer from "./dialogsReducer";
+import profileReducer from "./profileReducer";
 
 let store = {
   _state: {
@@ -53,46 +51,14 @@ let store = {
   },
 
   dispatch(action) {    // action - это объект, который описывает какое действие совершить. У этого объекта должно быть обязательно свойство "type", которое текстовое с названием действия
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 6,
-        message: this._state.profilePage.newPostText,
-        likesCounter: "0"
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } 
-    else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } 
-    else if (action.type === ADD_NEW_MESSAGE) {
-      let newMess = {
-        id: 5,
-        talker: "you",
-        message: this._state.messagesPage.newMessageText
-      };
-      this._state.messagesPage.messages.push(newMess);
-      this._state.messagesPage.newMessageText = "";
-      this._callSubscriber(this._state);
-    } 
-    else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.messagesPage.newMessageText = action.newMes;
-      this._callSubscriber(this._state);
-    }
+
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = dialogsReducer(this._state.messagesPage, action);
+
+    this._callSubscriber(this._state);
+
   }
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST});
-
-export const updateNewPostTextActionCreator = (text) => (
-  {type: UPDATE_NEW_POST_TEXT, newText: text});
-
-export const addNewMessageActionCreator = () => ({type: ADD_NEW_MESSAGE});
-
-export const updateNewMessageTextActionCreator = (Mess) => (
-  {type: UPDATE_NEW_MESSAGE_TEXT, newMes: Mess});
 
 export default store;
 window.store = store;
