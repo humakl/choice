@@ -1,5 +1,4 @@
-import MyPosts from './myPosts/myPosts';
-// import cf from './profile.module.css';
+import MyPostsContainer from './myPosts/myPostsContainer';
 import ProfileInfo from './profileInfo/profileInfo';
 
 const Profile = (props) => {
@@ -7,7 +6,7 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} dispatch={props.dispatch}/>
+      <MyPostsContainer store={props.store} />
     </div >
   )
 }
