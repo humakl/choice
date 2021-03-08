@@ -9,7 +9,7 @@ import Settings from './components/settings/settings';
 import DialogsContainer from './components/dialogs/dialogsContainer';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <div className="app-wrapper">
       <Header />
