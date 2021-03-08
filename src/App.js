@@ -10,9 +10,6 @@ import DialogsContainer from './components/dialogs/dialogsContainer';
 
 
 const App = (props) => {
-
-  debugger
-
   return (
     <div className="app-wrapper">
       <Header />
