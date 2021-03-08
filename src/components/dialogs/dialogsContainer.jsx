@@ -8,7 +8,7 @@ const DialogsContainer = () => {
 
   return (
     <StoreContext.Consumer>
-      {(store) => {
+      { store => {
         let state = store.getState();
 
         let addNewMessage = () => {
