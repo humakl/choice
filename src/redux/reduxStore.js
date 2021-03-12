@@ -2,12 +2,14 @@ import { combineReducers, createStore } from "redux";
 import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
 import sidebarReducer from "./sidebarReducer";
+import usersReducer from "./usersReducer";
 
 let reducers = combineReducers({
   //воспринимает данный объект, как state
   profilePage: profileReducer,
   messagesPage: dialogsReducer,
-  sidebar: sidebarReducer
+  sidebar: sidebarReducer,
+  usersPage: usersReducer
 })
 
 let store = createStore(reducers);
