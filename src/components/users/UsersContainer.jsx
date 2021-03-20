@@ -3,6 +3,7 @@ import { followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowA
 import Users from "./users";
 
 let mapStateToProps = (state) => {
+  //возвращает объект, который по итогу из state достает данные
   return {
     users: state.usersPage.users,
     pageSize: state.usersPage.pageSize,
@@ -12,6 +13,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
+  //возвращает объект, в котором есть callback-и
   return {
     follow: (userID) => {
       //мы dispatch-им не actionCreator, а результат работы actionCreator-а
