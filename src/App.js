@@ -7,7 +7,7 @@ import News from './components/news/news';
 import Photos from './components/photos/photos';
 import Settings from './components/settings/settings';
 import DialogsContainer from './components/dialogs/dialogsContainer';
-import UsersContainer from './components/users/UsersContainer';
+import UsersContainer from './components/users/usersContainer';
 
 
 const App = () => {
