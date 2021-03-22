@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addNewMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/dialogsReducer';
+import { addNewMessage, updateNewMessageText } from '../../redux/dialogsReducer';
 import Dialogs from './dialogs';
 
 
@@ -39,19 +39,7 @@ let mapStateToProps = (state) => {
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  // передает callback-и через props в компоненту Dialogs;
-  return {
-    updateNewMessageText: (Mess) => {
-      dispatch(updateNewMessageTextActionCreator(Mess));
-    },
-    addNewMessage: () => {
-      dispatch(addNewMessageActionCreator());
-    }
-  }
-}
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+const DialogsContainer = connect(mapStateToProps, {updateNewMessageText, addNewMessage})(Dialogs);
 
 
 export default DialogsContainer;
