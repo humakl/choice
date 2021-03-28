@@ -1,4 +1,4 @@
-import axios from 'axios';
+import * as axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import userPhoto from '../../assets/images/photo_small.jpg';
 import cf from './users.module.css';
