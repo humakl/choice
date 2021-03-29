@@ -21,17 +21,19 @@ let Users = (props) => {
       props.users.map(u => <div key={u.id}>
         <span>
           <div>
-            <NavLink to={'/profile/' + u.id}><img src={u.photos.small !== null ? u.photos.small : userPhoto} alt="" className={cf.userAva} /></NavLink>
+            <NavLink to={'/profile/' + u.id}>
+              <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={cf.userAva} />
+            </NavLink>
           </div>
           <div>
 
             {u.followed
               ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-              onClick={() => {props.unfollow(u.id);}}>
+                onClick={() => { props.unfollow(u.id); }}>
                 Unfollow</button>
 
               : <button disabled={props.followingInProgress.some(id => id === u.id)}
-              onClick={() => {props.follow(u.id)}}>
+                onClick={() => { props.follow(u.id) }}>
                 Follow</button>}
 
           </div>
