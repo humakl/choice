@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import DialogItem from './dialogItem/dialogItem';
 import cf from './dialogs.module.css';
 import Message from './message/message';
@@ -18,6 +19,8 @@ const Dialogs = (props) => {
     let Mess = e.target.value;
     props.updateNewMessageText(Mess);
   }
+
+  if (!props.isAuth) return <Redirect to={'/login'} />;
 
   return (
     <div className={cf.dialogs}>
