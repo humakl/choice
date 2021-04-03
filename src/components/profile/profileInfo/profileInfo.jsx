@@ -1,5 +1,6 @@
 import Preloader from '../../common/preloader/preloader';
 import cf from './profileInfo.module.css';
+import ProfileStatus from './profileStatus';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -7,12 +8,12 @@ const ProfileInfo = (props) => {
   }
   return (
     <div>
-      <div>
+      {/* <div>
         <img src="images/lakes.jpg" alt="info"></img>
-      </div>
+      </div> */}
       <div className={cf.descriptionBlock}>
         <img src={props.profile.photos.small} alt="avatar" className={cf.ava}></img>
-        ava + description
+        <ProfileStatus status={'test'} />
       </div >
     </div >
   )
