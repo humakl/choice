@@ -15,32 +15,32 @@ export const usersAPI = {
         return response.data;
       });
   },
-  follow(userID) {
-    return instance.post(`follow/${userID}`)
+  follow(userId) {
+    return instance.post(`follow/${userId}`)
   },
-  unfollow(userID) {
-    return instance.delete(`follow/${userID}`)
+  unfollow(userId) {
+    return instance.delete(`follow/${userId}`)
   },
-  getProfile(userID) {
-    console.warn('Obsolete method method. Please use profileAPI object');
-    return profileAPI.getProfile(userID);
+  getProfile(userId) {
+    console.warn('Obsolete method. Please use profileAPI object');
+    return profileAPI.getProfile(userId);
   }
 }
 
 export const profileAPI = {
-  getProfile(userID) {
-    return instance.get(`profile/` + userID);
+  getProfile(userId) {
+    return instance.get(`profile/` + userId);
   },
-  getStatus(userID) {
-    return instance.get('profile/status/' + userID);
+  getStatus(userId) {
+    return instance.get(`profile/status/` + userId);
   },
   updateStatus(status) {
-    return instance.put('profile/status', { status: status });
+    return instance.put(`profile/status/`, { status: status });
   }
 }
 
 export const authAPI = {
   me() {
-    return instance.get('auth/me');
+    return instance.get(`auth/me`);
   }
 }
