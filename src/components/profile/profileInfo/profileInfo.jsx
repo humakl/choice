@@ -13,7 +13,7 @@ const ProfileInfo = (props) => {
       </div> */}
       <div className={cf.descriptionBlock}>
         <img src={props.profile.photos.small} alt="avatar" className={cf.ava}></img>
-        <ProfileStatus status={'test'} />
+        <ProfileStatus status={props.status} />
       </div >
     </div >
   )
