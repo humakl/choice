@@ -4,6 +4,7 @@ import { required } from "../../utils/validators/validators"
 import { Input } from "../common/FormsControls/formsControls"
 import { login } from "../../redux/authReducer"
 import { Redirect } from "react-router"
+import cf from "../common/FormsControls/formsControls.module.css"
 
 const LoginForm = (props) => {
   return (
@@ -17,6 +18,7 @@ const LoginForm = (props) => {
       <div>
         <Field component={Input} name={'rememberMe'} type={'checkbox'} />remember me
       </div>
+      { props.error && <div className={cf.formError}>{props.error}</div>}
       <div>
         <button>Sign in</button>
       </div>

@@ -1,4 +1,4 @@
-import cf from './formsControls.module..css';
+import cf from './formsControls.module.css';
 
 const FormControl = ({ input, meta, child, ...props }) => {
   const hasError = meta.touched && meta.error;
