@@ -1,6 +1,6 @@
 import Preloader from '../../common/preloader/preloader';
 import cf from './profileInfo.module.css';
-import ProfileStatus from './profileStatus';
+import ProfileStatusWithHooks from './profileStatusWithHooks';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -13,7 +13,7 @@ const ProfileInfo = (props) => {
       </div> */}
       <div className={cf.descriptionBlock}>
         <img src={props.profile.photos.small} alt="avatar" className={cf.ava}></img>
-        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
       </div >
     </div >
   )
