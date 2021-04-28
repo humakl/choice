@@ -1,6 +1,6 @@
 import cf from './formsControls.module.css';
 
-const FormControl = ({ input, meta, child, ...props }) => {
+const FormControl = ({ input, meta, children, ...props }) => {
   const hasError = meta.touched && meta.error;
   return (
     <div className={cf.error}>

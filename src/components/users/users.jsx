@@ -1,55 +1,19 @@
-import { NavLink } from 'react-router-dom';
-import userPhoto from '../../assets/images/photo_small.jpg';
-import cf from './users.module.css';
+import Paginator from '../common/paginator/paginator';
+import User from './user';
 
-let Users = (props) => {
-
-  let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
-  let pages = [];
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
+let Users = ({ currentPage, totalUsersCount, pageSize, onPageChanged, users, ...props }) => {
 
   return <div>
+    <Paginator currentPage={currentPage} onPageChanged={onPageChanged} totalUsersCount={totalUsersCount} pageSize={pageSize} />
     <div>
-      {pages.map(p => {
-        return <span className={props.currentPage === p && cf.selectedPage} onClick={() => { props.onPageChanged(p); }}>{p}</span>
-      })}
+      {
+        users.map(u => <User followingInProgress={props.followingInProgress}
+          unfollow={props.unfollow}
+          follow={props.follow}
+          user={u}
+          key={u.id} />)
+      }
     </div>
-    {
-      props.users.map(u => <div key={u.id}>
-        <span>
-          <div>
-            <NavLink to={'/profile/' + u.id}>
-              <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={cf.userAva} />
-            </NavLink>
-          </div>
-          <div>
-
-            {u.followed
-              ? <button disabled={props.followingInProgress.some(id => id === u.id)}
-                onClick={() => { props.unfollow(u.id); }}>
-                Unfollow</button>
-
-              : <button disabled={props.followingInProgress.some(id => id === u.id)}
-                onClick={() => { props.follow(u.id) }}>
-                Follow</button>}
-
-          </div>
-        </span>
-        <span>
-          <span>
-            <div>{u.name}</div>
-            <div>{u.status}</div>
-          </span>
-          <span>
-            <div>{'u.location.country'}</div>
-            <div>{"u.location.city"}</div>
-          </span>
-        </span>
-      </div>)
-    }
   </div>;
 }
 
