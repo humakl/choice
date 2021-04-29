@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
-import { Field, reduxForm } from "redux-form"
+import { reduxForm } from "redux-form"
 import { required } from "../../utils/validators/validators"
-import { Input } from "../common/FormsControls/formsControls"
+import { createField, Input } from "../common/FormsControls/formsControls"
 import { login } from "../../redux/authReducer"
 import { Redirect } from "react-router"
 import cf from "../common/FormsControls/formsControls.module.css"
@@ -9,15 +9,10 @@ import cf from "../common/FormsControls/formsControls.module.css"
 const LoginForm = ({ handleSubmit, error }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <Field validate={[required]} component={Input} name={'email'} placeholder={'Email'} />
-      </div>
-      <div>
-        <Field validate={[required]} component={Input} name={'password'} type='password' placeholder={'Password'} />
-      </div>
-      <div>
-        <Field component={Input} name={'rememberMe'} type={'checkbox'} />remember me
-      </div>
+      {createField('Email', 'email', [required], Input)}
+      {createField('Password', 'password', [required], Input, { type: 'password' })}
+      {createField(null, 'rememberMe', null, Input, { type: 'checkbox' }, 'remember me')}
+
       { error && <div className={cf.formError}>{error}</div>}
       <div>
         <button>Sign in</button>
